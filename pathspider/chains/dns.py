@@ -56,7 +56,7 @@ class DNSChain(Chain):
         :param rev: ``True`` if the packet was in the reverse direction, ``False`` if
                     in the forward direction
         :type rev: bool
-        :return: ``False`` if a valid DNS response has been seen, otherwise ``True``
+        :return: ``True`` if a valid DNS response has been seen, otherwise ``False``
         :rtype: bool
         """
 
@@ -81,7 +81,7 @@ class DNSChain(Chain):
         :param rev: ``True`` if the packet was in the reverse direction, ``False`` if
                     in the forward direction
         :type rev: bool
-        :return: ``False`` if a valid DNS response has been seen, otherwise ``True``
+        :return: ``True`` if a valid DNS response has been seen, otherwise ``False``
         :rtype: bool
         """
 
@@ -101,4 +101,4 @@ class DNSChain(Chain):
                                "Cannot dissect DNS!")
         except ValueError:
             pass # Wasn't a DNS payload
-        return not rec['dns_response_valid']
+        return rec['dns_response_valid']
